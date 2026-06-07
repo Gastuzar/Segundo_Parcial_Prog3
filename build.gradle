@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.gestion.pedidos'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Hibernate ORM (incluye jakarta.persistence)
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+    // Base de datos H2 (igual que el TP8 base)
+    implementation 'com.h2database:h2:2.2.224'
+
+    // Lombok — generador de getters/setters/builders en tiempo de compilación
+    compileOnly     'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+}
+
+// Clase principal del proyecto
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.gestion.pedidos.Main'
+    }
+}
